@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="data"
+            type="com.selimsimsek.domain.model.RepositoryItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_24"
+        android:layout_marginVertical="@dimen/margin_8">
+
+
+        <TextView
+            android:id="@+id/tvRepoName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@{data.fullName}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="qingmei2/MVVM-Rhine" />
+
+        <TextView
+            android:id="@+id/tvRepoDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{data.description==null?"":data.description}'
+            android:textColor="@color/secondaryTextGray"
+            android:textSize="12sp"
+            android:layout_marginTop="@dimen/margin_8"
+            android:visibility="@{data.description==null?View.GONE:View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivStarRoom"
+            tools:text="The MVVM Architecture in Android（MVVM）." />
+
+        <ImageView
+            android:id="@+id/ivStar"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginTop="@dimen/margin_8"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_star_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepoDesc"
+            app:tint="@color/color_language_js" />
+
+        <TextView
+            android:id="@+id/tvStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text='@{String.valueOf(data.stargazersCount)}'
+            android:textColor="@color/secondaryTextGray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivStar"
+            app:layout_constraintStart_toEndOf="@+id/ivStar"
+            app:layout_constraintTop_toTopOf="@+id/ivStar"
+            tools:text="502" />
+
+        <ImageView
+            android:id="@+id/ivIssue"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginStart="12dp"
+            android:paddingTop="1dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_issue_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/tvStar"
+            app:layout_constraintStart_toEndOf="@+id/tvStar"
+            app:layout_constraintTop_toTopOf="@+id/tvStar" />
+
+        <TextView
+            android:id="@+id/tvIssue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text='@{String.valueOf(data.openIssuesCount)}'
+            android:textColor="@color/secondaryTextGray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivIssue"
+            app:layout_constraintStart_toEndOf="@+id/ivIssue"
+            app:layout_constraintTop_toTopOf="@+id/ivIssue" />
+
+        <ImageView
+            android:id="@+id/ivFork"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_marginStart="12dp"
+            android:paddingTop="1dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_fork_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIssue"
+            app:layout_constraintStart_toEndOf="@+id/tvIssue"
+            app:layout_constraintTop_toTopOf="@+id/tvIssue" />
+
+        <TextView
+            android:id="@+id/tvFork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text='@{String.valueOf(data.forksCount)}'
+            android:textColor="@color/secondaryTextGray"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivFork"
+            app:layout_constraintStart_toEndOf="@+id/ivFork"
+            app:layout_constraintTop_toTopOf="@+id/ivFork" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivLanguageColor"
+            setColor="@{data.language}"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintEnd_toStartOf="@+id/tvLanguage"
+            app:layout_constraintTop_toTopOf="@+id/ivStar" />
+
+        <TextView
+            android:id="@+id/tvLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.language}"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivLanguageColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivLanguageColor"
+            tools:text="Java" />
+
+        <ImageView
+            android:id="@+id/ivStarRoom"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_star_gray"
+            app:layout_constraintEnd_toEndOf="@+id/tvRepoName"
+            app:layout_constraintTop_toTopOf="@+id/tvRepoName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

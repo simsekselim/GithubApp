@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Github</string>
+
+    <string name="main_nav_home">Home</string>
+    <string name="main_nav_repos">Repos</string>
+    <string name="main_nav_profile">Me</string>
+
+
+    <string name="login_tips">Sign in to GitHub</string>
+    <string name="login_hint_username">admin</string>
+    <string name="login_hint_password">admin321</string>
+    <string name="login_sign_in">Sign in</string>
+    <string name="login_sign_in_tips">This page is a login simulation, as long as you fill in a valid code in local.properties, you can login normally</string>
+    <string name="start">Start</string>
+    <string name="long_text"><![CDATA[Masterful Mobile Developer 💥 & UI|UX Designer 🚀 | Kotlin 💥 | Java ⚡ | Dart 🌟]]></string>
+    <string name="filed_is_required">Field is Required</string>
+    <string name="not_found">Not Found Username</string>
+
+    <string name="transition_from_home_to_search" translatable="false">transitionFromHomeToSearch</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="try_again">Giriş Yapmayı Yeniden Deneyin</string>
+    <string name="no_comment">Yorum Bulunmamaktadır</string>
+    <string name="check_internet">Bağlantınızı Kontrol Edin</string>
+
+</resources>

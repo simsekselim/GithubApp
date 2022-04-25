@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.selimsimsek.githubapp.presentation.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_horizontal">
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/icGithub"
+            android:layout_width="@dimen/toolbarLogoSize"
+            android:layout_height="@dimen/toolbarLogoSize"
+            android:layout_marginStart="@dimen/margin_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.22000003"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/logo"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvTips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:gravity="center"
+            android:text="@string/login_tips"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icGithub" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tvUsername"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32"
+            android:textColorHint="@color/secondaryLightColor"
+            app:boxStrokeColor="@color/box_input_text_color"
+            app:hintTextColor="@color/box_input_text_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTips"
+            app:layout_constraintWidth_percent="0.9">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtUsername"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Username..."
+                android:text="@={viewModel.username}"
+                android:imeOptions="actionSend"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/secondaryLightColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mBtnSignIn"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="@dimen/margin_32"
+            android:backgroundTint="@color/dark_pri_100"
+            android:text="@string/login_sign_in"
+            android:enabled="@{viewModel.validation}"
+            android:onClick="@{()->viewModel.onClickLogin()}"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/dark_pri_100"
+            app:cornerRadius="@dimen/radius_1000"
+            app:layout_constraintEnd_toEndOf="@+id/tvUsername"
+            app:layout_constraintStart_toStartOf="@+id/tvUsername"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
+
+        <TextView
+            android:id="@+id/mTvTips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:gravity="center"
+            android:text="@string/login_sign_in_tips"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/mBtnSignIn"
+            app:layout_constraintStart_toStartOf="@+id/mBtnSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/mBtnSignIn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

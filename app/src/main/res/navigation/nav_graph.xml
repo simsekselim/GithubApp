@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.selimsimsek.githubapp.presentation.splash.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.selimsimsek.githubapp.presentation.login.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_home"
+            app:destination="@id/home">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_loginFragment_to_profile"
+            app:destination="@id/profile">
+        <argument
+            android:name="username"
+            app:argType="string" />
+        </action>
+    </fragment>
+    <include app:graph="@navigation/home" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.selimsimsek.githubapp.presentation.search.SearchFragment"
+        android:label="SearchFragment">
+        <action
+            android:id="@+id/action_searchFragment_to_detailsUserFragment"
+            app:destination="@id/detailsUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.selimsimsek.githubapp.presentation.webview.WebViewFragment"
+        android:label="WebViewFragment" />
+    <fragment
+        android:id="@+id/detailsUserFragment"
+        android:name="com.selimsimsek.githubapp.presentation.details.DetailsUserFragment"
+        android:label="DetailsUserFragment" />
+    <include app:graph="@navigation/profile" />
+</navigation>
